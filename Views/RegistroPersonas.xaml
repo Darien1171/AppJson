@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppJson.Views.RegistroPersonas"
+             Title="RegistroPersonas">
+    <ScrollView>
+        <Grid Padding="30" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+            <Border Grid.Row="0" BackgroundColor="Transparent" HeightRequest="150" HorizontalOptions="Center" Stroke="Gray"
+                    StrokeShape="RoundRectangle 75" StrokeThickness="2" VerticalOptions="Center" WidthRequest="150">
+                <Image x:Name="Foto" Aspect="AspectFill" Source="imagen.png"/>
+            </Border>
+            <Button x:Name="btnFoto" 
+                    Grid.Row="1" 
+                    HorizontalOptions="Center" 
+                    Text="Tomar/Seleccionar foto" 
+                    Clicked="btnFoto_Clicked">
+            </Button>
+            <Entry x:Name="txtNombre"
+                   Grid.Row="2"
+                   Placeholder="Nombre Persona"/>
+            <Entry x:Name="txtDescripcion"
+                   Grid.Row="3"
+                   Placeholder="Descripcion persona"/>
+            <Entry x:Name="txtCelular"
+                    Grid.Row="4"
+                    Placeholder="Celular"/>
+            <Entry x:Name="txtEmail"
+                    Grid.Row="5"
+                    Placeholder="Email"/>
+            <Label Text="Fecha Cumpleaños" Grid.Row="6"/>
+            <DatePicker x:Name="dateFechaCumple"
+                        Grid.Row="7"
+                        Format="MM/dd"
+                        MaximumDate="2050/12/31"
+                        MinimumDate="1900/01/01"/>
+            <Label Text="seleccione grupo"
+                   Grid.Row="8"/>
+            <Picker x:Name="pickerGrupo"
+                    Title="Seleccione Grupo"
+                    Grid.Row="8"/>
+            <Button x:Name="btnRegistrar"
+                    Text="Registrar Persona"
+                    Grid.Row="9"
+                    Clicked="btnRegistrar_Clicked"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -12,6 +12,18 @@ namespace AppJson
             InitializeComponent();
         }
 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            CargarGrupos();
+        }
+
+        private async void CargarGrupos()
+        {
+            var grupos = await GrupoJson.ListaGrupos();
+            collectionViweGrupos.ItemsSource = grupos;
+        }
+
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
             Grupo oGrupo = new Grupo();

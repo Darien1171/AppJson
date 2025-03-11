@@ -9,15 +9,26 @@
                    Text="Nombre Grupo"/>
             <Entry x:Name="txtNombre"
                    Grid.Row="1"/>
-            <Label  Grid.Row="0"
+            <Label  Grid.Row="2"
                     Text="Descripcion del Grupo"/>
             <Entry x:Name=" txtDescripcion"
                    Grid.Row="3"/>
             <Button x:Name="btnRegistrar"
-                    Grid.Row="5"
+                    Grid.Row="4"
                     Text="Registrar Grupo"
                     Clicked="btnRegistrar_Clicked"/>
-                        
+            
+            <CollectionView x:Name="collectionViweGrupos" Grid.Row="5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="30" Spacing="30">
+                            <Label Text="{Binding NombreGrupo}"></Label>
+                            <Label Text="{Binding DescripcionGrupo}"></Label>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </Grid>
     </ScrollView>
 

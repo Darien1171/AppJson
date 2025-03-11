@@ -21,8 +21,11 @@ namespace AppJson.Json
         public static async Task<List<Grupo>> ListaGrupos()
         {
             Plataforma oPlataforma = new Plataforma();
-            string path = oPlataforma.ObtenerPath("gruposjson");
-
+            string path = oPlataforma.ObtenerPath("gruposjson.json");
+            if (!File.Exists(path))
+            {
+                return new List<Grupo>();
+            }
             string json = await File.ReadAllTextAsync(path);
             return JsonSerializer.Deserialize<List<Grupo>>(json)?? new List<Grupo>();
         }

@@ -4,12 +4,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AppJson"
-    Shell.FlyoutBehavior="Disabled"
+    xmlns:localPages="clr-namespace:AppJson.Views"
+    Shell.FlyoutBehavior="Flyout"
     Title="AppJson">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <FlyoutItem Title="Personas">
+        <ShellContent Title="Registrar Personas" ContentTemplate="{DataTemplate localPages:RegistroPersonas}"/>
+    </FlyoutItem>
 
 </Shell>
