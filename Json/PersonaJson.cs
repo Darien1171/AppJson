@@ -10,10 +10,10 @@ namespace AppJson.Json
 {
     internal class PersonaJson
     {
-        public static async Task RegistrarPersona(List<Persona> personas) 
-        { 
+        public static async Task RegistrarPersona(List<Persona> personas)
+        {
             Plataforma oPlataforma = new Plataforma();
-            string path = oPlataforma.ObtenerPath("persona.json");
+            string path = oPlataforma.ObtenerPath("personas.json");
             string json = JsonSerializer.Serialize(personas, new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(path, json);
         }
@@ -28,6 +28,18 @@ namespace AppJson.Json
             }
             string json = await File.ReadAllTextAsync(path);
             return JsonSerializer.Deserialize<List<Persona>>(json) ?? new List<Persona>();
+        }
+
+        public static async Task EliminarPersona(int idPersona)
+        {
+            var personas = await ListaPersonas();
+            var persona = personas.FirstOrDefault(p => p.IdPersona == idPersona);
+
+            if (persona != null)
+            {
+                personas.Remove(persona);
+                await RegistrarPersona(personas);
+            }
         }
     }
 }

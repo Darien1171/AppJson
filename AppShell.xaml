@@ -12,8 +12,11 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    <FlyoutItem Title="Personas">
+    <FlyoutItem Title="Registrar Personas">
         <ShellContent Title="Registrar Personas" ContentTemplate="{DataTemplate localPages:RegistroPersonas}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Visualizar Personas">
+        <ShellContent Title="Visualizar Personas" ContentTemplate="{DataTemplate localPages:VisualizarPersonas}"/>
     </FlyoutItem>
 
 </Shell>
